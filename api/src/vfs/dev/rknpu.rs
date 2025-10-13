@@ -31,7 +31,7 @@ impl DeviceOps for Rknpu {
     }
 
     fn ioctl(&self, cmd: u32, arg: usize) -> VfsResult<usize> {
-        info!("rknpu: ioctl called cmd={} arg={:#x}", cmd, arg);
+        info!("rknpu: ioctl called cmd={:#x}, arg={:#x}", cmd, arg);
         // Best-effort: if arg is a user pointer, zero the first u32 there so
         // user-space doesn't read uninitialized memory (which produced
         // 0xffffffff in demos and led to crashes).
