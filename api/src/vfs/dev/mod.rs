@@ -10,7 +10,7 @@ mod r#loop;
 mod memtrack;
 mod rtc;
 mod rknpu;
-mod dma_heap;
+mod dma_frame;
 pub mod tty;
 
 use alloc::{format, sync::Arc};
@@ -314,8 +314,8 @@ fn builder(fs: Arc<SimpleFs>) -> DirMaker {
         Device::new(
             fs.clone(),
             NodeType::CharacterDevice,
-            dma_heap::DMA_HEAP_SYSTEM_DEVICE_ID,
-            Arc::new(dma_heap::DmaHeapSystem::new()),
+            dma_frame::dma_heap::DMA_HEAP_SYSTEM_DEVICE_ID,
+            Arc::new(dma_frame::dma_heap::DmaHeapSystem::new()),
         ),
     );
     root.add(

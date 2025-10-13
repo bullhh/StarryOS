@@ -57,4 +57,7 @@ vf2:
 aarch64-build:
 	$(MAKE) ARCH=aarch64 APP_FEATURES=dyn  FEATURES=driver-virtio-blk BUS=mmio LD_SCRIPT=link.x MYPLAT=axplat-aarch64-dyn  build
 
+aarch64-test:
+	$(MAKE) ARCH=aarch64 APP_FEATURES=dyn  FEATURES=driver-virtio-blk BUS=mmio LD_SCRIPT=link.x MYPLAT=axplat-aarch64-dyn NET=n run
+
 .PHONY: build run justrun debug disasm clean
